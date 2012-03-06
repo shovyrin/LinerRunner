@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "CCAnimate+SequenceLoader.h"
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -34,20 +35,110 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+        
+        CGSize screenSize = [[CCDirector sharedDirector] winSize];
+        
+        //Add background
+        CCSprite* background = [CCSprite spriteWithFile:@"bg_static.png"];
+        
+        background.position = ccp(screenSize.width / 2, screenSize.height / 2);
+        
+        [self addChild:background];
+        
+        //Add Move background
+        CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"background.png"];
+        
+        CCSprite* movedBackgroundOne = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite* movedBackgroundTwo = [CCSprite spriteWithFile:@"background.png"];
+        
+        movedBackgroundOne.position = ccp(movedBackgroundOne.contentSize.width / 2, screenSize.height / 2);
 
-		// ask director the the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+        [batch addChild:movedBackgroundOne];
+        
+        movedBackgroundTwo.position = ccp((movedBackgroundOne.contentSize.width / 2) + movedBackgroundOne.contentSize.width, screenSize.height / 2);
+        
+        [batch addChild:movedBackgroundTwo];
+        
+        
+        [self addChild:batch z:0 tag:EnumBackground];
+        
+        [self schedule:@selector(moveBackground) interval:0.04f];
+        
 		
-		// add the label as a child to this Layer
-		[self addChild: label];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"runner.plist"];
+        
+        CCSprite* sprite = [CCSprite spriteWithSpriteFrameName:@"run_1.png"] ;
+        
+        sprite.position = ccp(200,70);
+        
+        
+        // with automated determining the number of frames
+        
+        id repeatRunForever = [CCRepeatForever actionWithAction:
+                               [CCAnimate actionWithSpriteSequence:@"run_%d.png"
+                                                        delay:0.06f
+                                         restoreOriginalFrame:NO]];
+        
+        [sprite runAction:repeatRunForever];
+        
+        [self addChild:sprite z:1 tag:EnumRunner];
+		
 	}
 	return self;
+}
+
+-(void)moveBackground{
+    
+    
+    CCArray* mapArray = [self.mapSpriteBatch children];
+    
+    for (int i = 0; i < 2; i++) {
+        
+        CCNode* node = [mapArray objectAtIndex:i];
+        NSAssert([node isKindOfClass:[CCSprite class]], @"not a CCSprite");
+        
+        CCSprite *moveBg = (CCSprite*) node;
+
+            float coordX = moveBg.position.x;
+            if (coordX == (moveBg.contentSize.width / 2) && i == 1) {
+                
+                [self resetMap:mapArray];
+                break;
+            }
+
+        
+        float x = moveBg.position.x - 10;
+        float y = moveBg.position.y;
+        
+        moveBg.position = ccp(x, y);  
+        
+    }
+     
+    
+}
+
+-(void) resetMap:(CCArray *)array{
+    
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    CCSprite* mapOne = (CCSprite*)[array objectAtIndex:0];
+    CCSprite* mapTwo = (CCSprite*)[array objectAtIndex:1];
+    
+    mapOne.position = ccp(mapOne.contentSize.width / 2, screenSize.height / 2);
+    
+    mapTwo.position = ccp((mapTwo.contentSize.width / 2) + mapOne.contentSize.width, screenSize.height / 2);
+    
+}
+
+//найдем элементы с тегом GameSceneNodeTagBulletSpriteBatch
+-(CCSpriteBatchNode*) mapSpriteBatch
+{
+	CCNode* node = [self getChildByTag:EnumBackground];
+    //проверили класс CCSpriteBatchNode ли
+	NSAssert([node isKindOfClass:[CCSpriteBatchNode class]], @"not a CCSpriteBatchNode");
+    
+    //вернули массив пуль
+	return (CCSpriteBatchNode*)node;
 }
 
 // on "dealloc" you need to release all your retained objects
