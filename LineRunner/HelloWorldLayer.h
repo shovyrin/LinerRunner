@@ -20,6 +20,9 @@ typedef enum{
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer
 {
+    float jumpDistance;
+    int velocity;
+    BOOL isJump;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
@@ -27,5 +30,6 @@ typedef enum{
 -(void)moveBackground;
 -(CCSpriteBatchNode*) mapSpriteBatch;
 -(void) resetMap:(CCArray*) array;
+-(void) heroJump;
 
 @end

@@ -36,6 +36,9 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
         
+        isJump = NO;
+        velocity = 7;
+        
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
         //Add background
@@ -69,7 +72,7 @@
         
         CCSprite* sprite = [CCSprite spriteWithSpriteFrameName:@"run_1.png"] ;
         
-        sprite.position = ccp(200,70);
+        sprite.position = ccp(90,70);
         
         
         // with automated determining the number of frames
@@ -82,9 +85,46 @@
         [sprite runAction:repeatRunForever];
         
         [self addChild:sprite z:1 tag:EnumRunner];
+        
+        self.isTouchEnabled = YES;
 		
 	}
 	return self;
+}
+
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    if (isJump == NO) {
+           [self schedule:@selector(heroJump)];
+    }
+    
+}
+
+-(void) heroJump{
+    
+    isJump = YES;
+
+    if (jumpDistance == 12) {
+        velocity *= -1;
+    }
+    
+    jumpDistance ++;
+        
+    CCNode* node = [self getChildByTag:EnumRunner];
+        
+    NSAssert([node isKindOfClass:[CCSprite class]], @"This not a sprite class");
+        
+    CCSprite *heroSprite = (CCSprite*)node;
+    
+    heroSprite.position = ccp(heroSprite.position.x, heroSprite.position.y + velocity);
+    
+    if (heroSprite.position.y == 70) {
+        jumpDistance = 0;
+        isJump = NO;
+        velocity *= -1;
+        [self unschedule:@selector(heroJump)];     
+    }
+    
 }
 
 -(void)moveBackground{
