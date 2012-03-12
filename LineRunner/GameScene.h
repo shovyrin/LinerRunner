@@ -18,7 +18,7 @@ typedef enum{
 }TargetName;
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer
+@interface GameScene : CCLayer
 {
     float jumpDistance;
     int velocity;

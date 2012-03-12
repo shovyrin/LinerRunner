@@ -12,7 +12,7 @@
 #import "CCAnimate+SequenceLoader.h"
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation GameScene
 
 +(CCScene *) scene
 {
@@ -20,7 +20,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	GameScene *layer = [GameScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
