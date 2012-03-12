@@ -121,7 +121,7 @@
 		45290AC81506166F0039AD9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290AC71506166F0039AD9F /* main.m */; };
 		45290ACB1506166F0039AD9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290ACA1506166F0039AD9F /* AppDelegate.m */; };
 		45290ACE1506166F0039AD9F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290ACD1506166F0039AD9F /* RootViewController.m */; };
-		45290AD11506166F0039AD9F /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290AD01506166F0039AD9F /* HelloWorldLayer.m */; };
+		45290AD11506166F0039AD9F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290AD01506166F0039AD9F /* GameScene.m */; };
 		45290AE4150619240039AD9F /* CCAnimate+SequenceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290AE1150619240039AD9F /* CCAnimate+SequenceLoader.m */; };
 		45290AE5150619240039AD9F /* CCAnimation+SequenceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 45290AE3150619240039AD9F /* CCAnimation+SequenceLoader.m */; };
 		45290AF415062E520039AD9F /* runner.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45290AF215062E520039AD9F /* runner.plist */; };
@@ -363,8 +363,8 @@
 		45290ACA1506166F0039AD9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		45290ACC1506166F0039AD9F /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		45290ACD1506166F0039AD9F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		45290ACF1506166F0039AD9F /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		45290AD01506166F0039AD9F /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		45290ACF1506166F0039AD9F /* GameScene.h */ = {isa = PBXFileReference; path = GameScene.h; sourceTree = "<group>"; };
+		45290AD01506166F0039AD9F /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		45290AD21506166F0039AD9F /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		45290AE0150619240039AD9F /* CCAnimate+SequenceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCAnimate+SequenceLoader.h"; sourceTree = "<group>"; };
 		45290AE1150619240039AD9F /* CCAnimate+SequenceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCAnimate+SequenceLoader.m"; sourceTree = "<group>"; };
@@ -434,8 +434,8 @@
 				45290ACA1506166F0039AD9F /* AppDelegate.m */,
 				45290ACC1506166F0039AD9F /* RootViewController.h */,
 				45290ACD1506166F0039AD9F /* RootViewController.m */,
-				45290ACF1506166F0039AD9F /* HelloWorldLayer.h */,
-				45290AD01506166F0039AD9F /* HelloWorldLayer.m */,
+				45290ACF1506166F0039AD9F /* GameScene.h */,
+				45290AD01506166F0039AD9F /* GameScene.m */,
 				45290AD21506166F0039AD9F /* GameConfig.h */,
 				45290AE0150619240039AD9F /* CCAnimate+SequenceLoader.h */,
 				45290AE1150619240039AD9F /* CCAnimate+SequenceLoader.m */,
@@ -950,7 +950,7 @@
 				45290AC81506166F0039AD9F /* main.m in Sources */,
 				45290ACB1506166F0039AD9F /* AppDelegate.m in Sources */,
 				45290ACE1506166F0039AD9F /* RootViewController.m in Sources */,
-				45290AD11506166F0039AD9F /* HelloWorldLayer.m in Sources */,
+				45290AD11506166F0039AD9F /* GameScene.m in Sources */,
 				45290AE4150619240039AD9F /* CCAnimate+SequenceLoader.m in Sources */,
 				45290AE5150619240039AD9F /* CCAnimation+SequenceLoader.m in Sources */,
 			);
@@ -1048,6 +1048,7 @@
 				45290AD71506166F0039AD9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
