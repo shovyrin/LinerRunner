@@ -13,7 +13,8 @@
 typedef enum{
     
     EnumRunner = 0,
-    EnumBackground
+    EnumBackground,
+    EnumClouds
     
 }TargetName;
 
@@ -28,8 +29,10 @@ typedef enum{
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 -(void)moveBackground;
+-(void)moveClouds;
 -(CCSpriteBatchNode*) mapSpriteBatch;
 -(void) resetMap:(CCArray*) array;
+-(void) resetClouds;
 -(void) heroJump;
 
 @end

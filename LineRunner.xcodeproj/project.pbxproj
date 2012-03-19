@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4513345015136D540039FA2F /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 4513344F15136D540039FA2F /* sky.png */; };
+		4513346615138E440039FA2F /* bridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 4513346515138E440039FA2F /* bridge.png */; };
+		45133468151390080039FA2F /* bridge@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45133467151390080039FA2F /* bridge@2.png */; };
 		45290968150616690039AD9F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45290967150616690039AD9F /* QuartzCore.framework */; };
 		4529096A150616690039AD9F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45290969150616690039AD9F /* OpenGLES.framework */; };
 		4529096C150616690039AD9F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4529096B150616690039AD9F /* OpenAL.framework */; };
@@ -128,9 +131,15 @@
 		45290AF515062E520039AD9F /* runner.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 45290AF315062E520039AD9F /* runner.pvr.ccz */; };
 		45290AFE1506334B0039AD9F /* bg_static.png in Resources */ = {isa = PBXBuildFile; fileRef = 45290AFC1506334B0039AD9F /* bg_static.png */; };
 		45290B181506543F0039AD9F /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 45290B171506543F0039AD9F /* background.png */; };
+		4587A879151750F8005EAD8F /* bridge_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4587A878151750F8005EAD8F /* bridge_2.png */; };
+		4587A87C151754A7005EAD8F /* bridge_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4587A87B151754A7005EAD8F /* bridge_3.png */; };
+		4587A87E1517565D005EAD8F /* bridge_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4587A87D1517565D005EAD8F /* bridge_4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4513344F15136D540039FA2F /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
+		4513346515138E440039FA2F /* bridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridge.png; sourceTree = "<group>"; };
+		45133467151390080039FA2F /* bridge@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bridge@2.png"; sourceTree = "<group>"; };
 		45290963150616690039AD9F /* LineRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45290967150616690039AD9F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		45290969150616690039AD9F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -363,7 +372,7 @@
 		45290ACA1506166F0039AD9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		45290ACC1506166F0039AD9F /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		45290ACD1506166F0039AD9F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		45290ACF1506166F0039AD9F /* GameScene.h */ = {isa = PBXFileReference; path = GameScene.h; sourceTree = "<group>"; };
+		45290ACF1506166F0039AD9F /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		45290AD01506166F0039AD9F /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		45290AD21506166F0039AD9F /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		45290AE0150619240039AD9F /* CCAnimate+SequenceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCAnimate+SequenceLoader.h"; sourceTree = "<group>"; };
@@ -374,6 +383,9 @@
 		45290AF315062E520039AD9F /* runner.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = runner.pvr.ccz; sourceTree = "<group>"; };
 		45290AFC1506334B0039AD9F /* bg_static.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_static.png; sourceTree = "<group>"; };
 		45290B171506543F0039AD9F /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		4587A878151750F8005EAD8F /* bridge_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridge_2.png; sourceTree = "<group>"; };
+		4587A87B151754A7005EAD8F /* bridge_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridge_3.png; sourceTree = "<group>"; };
+		4587A87D1517565D005EAD8F /* bridge_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bridge_4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +463,12 @@
 		45290978150616690039AD9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4513346515138E440039FA2F /* bridge.png */,
+				4587A878151750F8005EAD8F /* bridge_2.png */,
+				4587A87B151754A7005EAD8F /* bridge_3.png */,
+				4587A87D1517565D005EAD8F /* bridge_4.png */,
+				45133467151390080039FA2F /* bridge@2.png */,
+				4513344F15136D540039FA2F /* sky.png */,
 				45290AFC1506334B0039AD9F /* bg_static.png */,
 				45290B171506543F0039AD9F /* background.png */,
 				45290AF215062E520039AD9F /* runner.plist */,
@@ -843,6 +861,12 @@
 				45290AF515062E520039AD9F /* runner.pvr.ccz in Resources */,
 				45290AFE1506334B0039AD9F /* bg_static.png in Resources */,
 				45290B181506543F0039AD9F /* background.png in Resources */,
+				4513345015136D540039FA2F /* sky.png in Resources */,
+				4513346615138E440039FA2F /* bridge.png in Resources */,
+				45133468151390080039FA2F /* bridge@2.png in Resources */,
+				4587A879151750F8005EAD8F /* bridge_2.png in Resources */,
+				4587A87C151754A7005EAD8F /* bridge_3.png in Resources */,
+				4587A87E1517565D005EAD8F /* bridge_4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,37 +42,55 @@
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         
         //Add background
-        CCSprite* background = [CCSprite spriteWithFile:@"bg_static.png"];
+        CCSprite* background = [CCSprite spriteWithFile:@"sky.png"];
         
         background.position = ccp(screenSize.width / 2, screenSize.height / 2);
         
-        [self addChild:background];
+        [self addChild:background z:0 tag:EnumClouds];
+        
         
         //Add Move background
-        CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"background.png"];
+        /*
+        CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"bridge.png"];
         
-        CCSprite* movedBackgroundOne = [CCSprite spriteWithFile:@"background.png"];
-        CCSprite* movedBackgroundTwo = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite* movedBackgroundOne = [CCSprite spriteWithFile:@"bridge.png"];
+        CCSprite* movedBackgroundTwo = [CCSprite spriteWithFile:@"bridge.png"];
+        */
+        
+        CCSprite* movedBackgroundOne = [CCSprite spriteWithFile:@"bridge.png"];
+        CCSprite* movedBackgroundTwo = [CCSprite spriteWithFile:@"bridge_2.png"];
+        CCSprite* movedBackgroundThree = [CCSprite spriteWithFile:@"bridge_3.png"];
+        CCSprite* movedBackgroundFour = [CCSprite spriteWithFile:@"bridge_4.png"];
         
         movedBackgroundOne.position = ccp(movedBackgroundOne.contentSize.width / 2, screenSize.height / 2);
 
-        [batch addChild:movedBackgroundOne];
+        //[batch addChild:movedBackgroundOne];
         
         movedBackgroundTwo.position = ccp((movedBackgroundOne.contentSize.width / 2) + movedBackgroundOne.contentSize.width, screenSize.height / 2);
         
-        [batch addChild:movedBackgroundTwo];
+        movedBackgroundThree.position = ccp((movedBackgroundTwo.contentSize.width / 2) + (movedBackgroundTwo.contentSize.width*2), screenSize.height / 2);
+        
+        movedBackgroundFour.position = ccp((movedBackgroundTwo.contentSize.width / 2) + (movedBackgroundTwo.contentSize.width*3), screenSize.height / 2);
+        
+        [self addChild:movedBackgroundOne z:1 tag:100];
+        [self addChild:movedBackgroundTwo z:1 tag:101];
+        [self addChild:movedBackgroundThree z:1 tag:103];
+        [self addChild:movedBackgroundFour z:1 tag:104];
+        
+       // [batch addChild:movedBackgroundTwo];
         
         
-        [self addChild:batch z:0 tag:EnumBackground];
+        //[self addChild:batch z:1 tag:EnumBackground];
         
         [self schedule:@selector(moveBackground) interval:0.04f];
+        [self schedule:@selector(moveClouds) interval:0.05f];
         
 		
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"runner.plist"];
         
         CCSprite* sprite = [CCSprite spriteWithSpriteFrameName:@"run_1.png"] ;
         
-        sprite.position = ccp(90,70);
+        sprite.position = ccp(90,140);
         
         
         // with automated determining the number of frames
@@ -84,7 +102,7 @@
         
         [sprite runAction:repeatRunForever];
         
-        [self addChild:sprite z:1 tag:EnumRunner];
+        [self addChild:sprite z:2 tag:EnumRunner];
         
         self.isTouchEnabled = YES;
 		
@@ -118,7 +136,7 @@
     
     heroSprite.position = ccp(heroSprite.position.x, heroSprite.position.y + velocity);
     
-    if (heroSprite.position.y == 70) {
+    if (heroSprite.position.y == 140) {
         jumpDistance = 0;
         isJump = NO;
         velocity *= -1;
@@ -129,6 +147,7 @@
 
 -(void)moveBackground{
     
+    /*
     
     CCArray* mapArray = [self.mapSpriteBatch children];
     
@@ -154,6 +173,56 @@
         
     }
      
+     */
+    
+    CCSprite* bg_node_one = (CCSprite*)[self getChildByTag:100];
+    
+    float x = bg_node_one.position.x - 10;
+    float y = bg_node_one.position.y;
+    
+    bg_node_one.position = ccp(x, y); 
+    
+    CCSprite* bg_node_two = (CCSprite*)[self getChildByTag:101];
+    
+    x = bg_node_two.position.x - 10;
+    y = bg_node_two.position.y;
+    
+    bg_node_two.position = ccp(x, y);
+    
+    
+    CCSprite* bg_node_three = (CCSprite*)[self getChildByTag:103];
+    
+    x = bg_node_three.position.x - 10;
+    y = bg_node_three.position.y;
+    
+    bg_node_three.position = ccp(x, y);
+    
+    CCSprite* bg_node_four = (CCSprite*)[self getChildByTag:104];
+    
+    x = bg_node_four.position.x - 10;
+    y = bg_node_four.position.y;
+    
+    bg_node_four.position = ccp(x, y);
+    
+}
+
+-(void) moveClouds{
+    
+    CCNode* node = [self getChildByTag:EnumClouds];
+    
+    float x = node.position.x;
+    
+    float delta = [node contentSize].width + x;
+    
+    if (delta > 0) {
+    
+        node.position = ccp(x - 0.10, node.position.y);
+        
+    }
+    else
+    {
+        [self resetClouds];
+    }
     
 }
 
@@ -167,6 +236,16 @@
     mapOne.position = ccp(mapOne.contentSize.width / 2, screenSize.height / 2);
     
     mapTwo.position = ccp((mapTwo.contentSize.width / 2) + mapOne.contentSize.width, screenSize.height / 2);
+    
+}
+
+-(void) resetClouds{
+    
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    
+    CCNode* node = [self getChildByTag:EnumClouds];
+    
+    node.position = ccp(screenSize.width / 2, screenSize.height / 2);
     
 }
 
